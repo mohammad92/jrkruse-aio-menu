@@ -170,6 +170,15 @@ debloat() {
   rm -rf $ANDROID_ROOT/system/carrier/USC/priv-app/Ignite-uscc
 }
 
+check_data_adb() {
+  DATA=false
+  if grep ' /data ' /proc/mounts | grep -vq 'tmpfs'; then
+    # Test if data is writable
+    touch /data/.rw && rm /data/.rw && DATA=true
+    $DATA && [ -d /data/adb ] || mkdir /data/adb
+  fi
+}
+
 ui_print " "
 print_full_bar
 print_justified "Prepare script for Samsung devices"
@@ -205,6 +214,7 @@ disable_frp
 fix_props
 sec_nvm_patch
 debloat
+check_data_adb
 
 ui_print " - Unmounting /vendor..."
 umount /vendor
