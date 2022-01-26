@@ -109,22 +109,15 @@ sec_nvm_patch() {
     else
        ui_print " - Found hex pattern in sec_nvm, skip patching!"
     fi
-  else
-    ui_print " - Device is not sm8250..." 
   fi
 }
 
 debloat() {
-  rm -f /data/system/locksettings.db
-  rm -f /data/system/locksettings.db-*
-  rm -f $ANDROID_ROOT/recovery-from-boot.bak
+  ui_print " - Minimal Debloat..."
+  rm -f /data/system/locksettings.db*
+  rm -f /vendor/recovery-from-boot*
   rm -f $ANDROID_ROOT/recovery-from-boot*
-  rm -f $ANDROID_ROOT/recovery-from-boot.*
-  rm -f $ANDROID_ROOT/recovery-from-boot.p
-  rm -f $ANDROID_ROOT/system/recovery-from-boot.bak
   rm -f $ANDROID_ROOT/system/recovery-from-boot*
-  rm -f $ANDROID_ROOT/system/recovery-from-boot.*
-  rm -f $ANDROID_ROOT/system/recovery-from-boot.p
   rm -rf $ANDROID_ROOT/system/app/AmazonMDIP_USA
   rm -rf $ANDROID_ROOT/system/app/AmazonShopping_USA
   rm -rf $ANDROID_ROOT/system/app/AmazonVideo_SPR_stub
@@ -158,7 +151,6 @@ debloat() {
   rm -rf $ANDROID_ROOT/system/priv-app/LinkedIn_SamsungStub
   rm -rf $ANDROID_ROOT/system/priv-app/Word_SamsungStub
   rm -rf $ANDROID_ROOT/system/priv-app/HancomOfficeEditor_Hidden_Install
-  rm -rf $ANDROID_ROOT/system/priv-app/VzCloud
   rm -rf $ANDROID_ROOT/system/priv-app/VzCloud
   rm -rf $ANDROID_ROOT/system/carrier/ATT/priv-app/canid_stub	
   rm -rf $ANDROID_ROOT/system/carrier/VZW/priv-app/canid_stub
