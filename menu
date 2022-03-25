@@ -1,7 +1,7 @@
 #!/bin/bash
 # By Mohammad Afaneh, afaneh92 @ XDA Developers.
 #
-# JRKRUSE-AIO-BUILDER v0.4
+# JRKRUSE-AIO-BUILDER v0.5
 
 # Variables
 DIR=`readlink -f .`;
@@ -166,7 +166,7 @@ clean(){
 # Show menu
 show_menus(){
   clear
-  echo "${ON_BLUE} J R K R U S E - A I O - B U I L D E R ${STD}"
+  echo "${ON_BLUE} J R K R U S E - A I O - B U I L D E R v0.5 ${STD}"
   echo "1. Build ${UNDER_LINE}i${STD}mg"
   echo "2. Build ${UNDER_LINE}e${STD}xt4"
   echo "3. ${UNDER_LINE}C${STD}lean"
